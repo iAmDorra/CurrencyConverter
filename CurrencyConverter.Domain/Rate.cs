@@ -2,8 +2,16 @@
 {
     public class Rate
     {
-        public Rate(double rate)
+        private readonly decimal _rate;
+
+        public Rate(decimal rate)
         {
+            _rate = rate;
+        }
+
+        public decimal Multiply(decimal value)
+        {
+            return _rate * value;
         }
     }
 }

@@ -15,7 +15,8 @@ namespace CurrencyConverter.Domain
 
         public Amount Convert(Currency currency, Rate rate)
         {
-            return new Amount(11.4m, currency);
+            var convertedValue = rate.Multiply(_value);
+            return new Amount(convertedValue, currency);
         }
 
         public override bool Equals(object obj)
