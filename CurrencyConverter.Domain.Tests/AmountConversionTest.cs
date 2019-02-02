@@ -31,7 +31,17 @@ namespace CurrencyConverter.Domain.Tests
             Amount expectedAmount = new Amount(1.14m, usd);
             Check.That(usdAmount).IsEqualTo(expectedAmount);
         }
-    }
 
-   
+        [TestMethod]
+        public void Should_return_the_same_amount_when_target_currency_is_same()
+        {
+            Currency eur = new Currency("EUR");
+            Amount euroAmount = new Amount(10, eur);
+            Rate eurUsdRate = new Rate(1.14m);
+            Amount usdAmount = euroAmount.Convert(eur, eurUsdRate);
+
+            Amount expectedAmount = new Amount(10, eur);
+            Check.That(usdAmount).IsEqualTo(expectedAmount);
+        }
+    }
 }

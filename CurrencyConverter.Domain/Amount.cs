@@ -15,6 +15,11 @@ namespace CurrencyConverter.Domain
 
         public Amount Convert(Currency currency, Rate rate)
         {
+            if (_currency.Equals(currency))
+            {
+                return this;
+            }
+
             var convertedValue = rate.Multiply(_value);
             return new Amount(convertedValue, currency);
         }
