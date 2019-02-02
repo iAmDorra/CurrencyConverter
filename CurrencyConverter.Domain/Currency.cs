@@ -2,8 +2,22 @@
 {
     public class Currency
     {
-        public Currency(string currency)
+        private readonly string _name;
+
+        public Currency(string name)
         {
+            _name = name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Currency currency
+                   && _name.Equals(currency._name);
+        }
+
+        public override int GetHashCode()
+        {
+            return (_name != null ? _name.GetHashCode() : 0);
         }
     }
 }

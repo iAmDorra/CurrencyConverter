@@ -37,11 +37,22 @@ namespace CurrencyConverter.Domain.Tests
         {
             Currency eur = new Currency("EUR");
             Amount euroAmount = new Amount(10, eur);
-            Rate eurUsdRate = new Rate(1.14m);
-            Amount usdAmount = euroAmount.Convert(eur, eurUsdRate);
+            Rate eurRate = new Rate(1.14m);
+            Amount convertedAmount = euroAmount.Convert(eur, eurRate);
+            
+            Check.That(convertedAmount).IsEqualTo(euroAmount);
+        }
 
-            Amount expectedAmount = new Amount(10, eur);
-            Check.That(usdAmount).IsEqualTo(expectedAmount);
+        [TestMethod]
+        public void Should_return_the_same_amount_when_target_currency_name_is_same()
+        {
+            Currency eur = new Currency("EUR");
+            Amount euroAmount = new Amount(10, eur);
+            Rate eurRate = new Rate(1.14m);
+            Currency eurCurrency = new Currency("EUR");
+            Amount convertedAmount = euroAmount.Convert(eurCurrency, eurRate);
+            
+            Check.That(convertedAmount).IsEqualTo(euroAmount);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace CurrencyConverter.Domain.Tests
         }
 
         [TestMethod]
-        public void Should_return_the_samount_when_target_currency_is_same()
+        public void Should_convert_the_amount_when_target_currency_is_different()
         {
             Currency usdCurrency = new Currency("USD");
             Currency eurCurrency = new Currency("EUR");
