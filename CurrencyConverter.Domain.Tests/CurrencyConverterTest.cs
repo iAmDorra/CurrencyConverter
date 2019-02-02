@@ -8,6 +8,7 @@ namespace CurrencyConverter.Domain.Tests
     public class CurrencyConverterTest
     {
         [TestMethod]
+        [TestCategory("Narrow Integration test")]
         public void Should_return_the_same_amount_when_target_currency_is_same()
         {
             Currency eurCurrency = new Currency("EUR");
@@ -22,6 +23,7 @@ namespace CurrencyConverter.Domain.Tests
         }
 
         [TestMethod]
+        [TestCategory("Narrow Integration test")]
         public void Should_convert_the_amount_when_target_currency_is_different()
         {
             Currency usdCurrency = new Currency("USD");
@@ -39,6 +41,7 @@ namespace CurrencyConverter.Domain.Tests
         }
 
         [TestMethod]
+        [TestCategory("Narrow Integration test")]
         public void Should_convert_the_amount_when_target_currency_is_different_triangulation()
         {
             Currency cadCurrency = new Currency("CAD");

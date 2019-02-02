@@ -7,6 +7,7 @@ namespace CurrencyConverter.Domain.Tests
     public class AmountConversionTest
     {
         [TestMethod]
+        [TestCategory("Unit test")]
         public void Should_convert_the_amount_when_given_currency_and_rate()
         {
             Currency eur = new Currency("EUR");
@@ -20,6 +21,7 @@ namespace CurrencyConverter.Domain.Tests
         }
 
         [TestMethod]
+        [TestCategory("Unit test")]
         public void Should_convert_the_amount_when_given_currency_and_rate_triangulation()
         {
             Currency eur = new Currency("EUR");
@@ -33,6 +35,7 @@ namespace CurrencyConverter.Domain.Tests
         }
 
         [TestMethod]
+        [TestCategory("Unit test")]
         public void Should_return_the_same_amount_when_target_currency_is_same()
         {
             Currency eur = new Currency("EUR");
@@ -44,6 +47,7 @@ namespace CurrencyConverter.Domain.Tests
         }
 
         [TestMethod]
+        [TestCategory("Unit test")]
         public void Should_return_the_same_amount_when_target_currency_name_is_same()
         {
             Currency eur = new Currency("EUR");

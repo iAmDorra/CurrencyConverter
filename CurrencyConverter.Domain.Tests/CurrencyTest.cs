@@ -4,6 +4,7 @@ using NFluent;
 namespace CurrencyConverter.Domain.Tests
 {
     [TestClass]
+    [TestCategory("Unit test")]
     public class CurrencyTest
     {
         [TestMethod]
