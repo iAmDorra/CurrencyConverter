@@ -1,6 +1,6 @@
 using System;
 
-namespace CurrencyConverter.Models
+namespace CurrencyConverter.Web.Models
 {
     public class ErrorViewModel
     {

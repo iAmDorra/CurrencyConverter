@@ -1,3 +1,8 @@
+Ce projet est utilisé pour experimenter les differents tests qu'un développeur peut réaliser.
+* Unit tests
+* Integrated tests (narrow & broad)
+* End to end tests
+
 Suivre ces étapes si vous voulez créer une base de données :
 https://docs.microsoft.com/fr-fr/ef/core/get-started/netcore/new-db-sqlite
 

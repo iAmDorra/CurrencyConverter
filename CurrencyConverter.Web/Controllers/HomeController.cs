@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CurrencyConverter.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using CurrencyConverter.Models;
+using System.Diagnostics;
 
-namespace CurrencyConverter.Controllers
+namespace CurrencyConverter.Web.Controllers
 {
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
+            ViewData["Amount"] = "10";
+            ViewData["Currency"] = "USD";
+
             return View();
         }
 
@@ -32,6 +31,14 @@ namespace CurrencyConverter.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+        public IActionResult Convert()
+        {
+            ViewData["Amount"] = HttpContext.Request.Form["Amount"];
+            ViewData["Currency"] = HttpContext.Request.Form["Currency"];
+            ViewData["ConvertedAmount"] = HttpContext.Request.Form["Amount"] + "+1";
+
+            return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
