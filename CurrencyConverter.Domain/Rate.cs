@@ -13,5 +13,16 @@
         {
             return _rate * value;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Rate rate
+                   && rate._rate.Equals(_rate);
+        }
+        
+        public override int GetHashCode()
+        {
+            return _rate.GetHashCode();
+        }
     }
 }

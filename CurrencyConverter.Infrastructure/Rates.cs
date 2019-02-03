@@ -1,5 +1,6 @@
 ﻿using CurrencyConverter.Domain;
 using System;
+using System.Linq;
 
 namespace CurrencyConverter.Infrastructure
 {
@@ -7,7 +8,11 @@ namespace CurrencyConverter.Infrastructure
     {
         public Rate GetRateOf(Currency currency)
         {
-            throw new NotImplementedException();
+            using (var db = new CurrencyConverterContext())
+            {
+                var rateValue = db.Rates.FirstOrDefault(r => currency.Is(r.Currency));
+                return rateValue == null ? null : new Rate(rateValue.Value);
+            }
         }
     }
 }

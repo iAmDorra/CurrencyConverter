@@ -14,5 +14,13 @@ namespace CurrencyConverter.Domain.Tests
             Currency eurCurrency = new Currency("EUR");
             Check.That(eur).IsEqualTo(eurCurrency);
         }
+
+        [TestMethod]
+        public void Should_return_true_when_currency_name_is_equal_to_the_given_name()
+        {
+            Currency eur = new Currency("EUR");
+            var isEqual = eur.Is("EUR");
+            Check.That(isEqual).IsTrue();
+        }
     }
 }

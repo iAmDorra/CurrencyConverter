@@ -19,5 +19,10 @@
         {
             return (_name != null ? _name.GetHashCode() : 0);
         }
+
+        public bool Is(string currencyName)
+        {
+            return _name.Equals(currencyName);
+        }
     }
 }
