@@ -34,9 +34,15 @@ namespace CurrencyConverter.Web.Controllers
         }
         public IActionResult Convert()
         {
-            ViewData["Amount"] = HttpContext.Request.Form["Amount"];
-            ViewData["Currency"] = HttpContext.Request.Form["Currency"];
-            ViewData["ConvertedAmount"] = HttpContext.Request.Form["Amount"] + "+1";
+            var amount = HttpContext.Request.Form["Amount"];
+            var currency = HttpContext.Request.Form["Currency"];
+
+            var conversionService = new ConversionService();
+            var convertedAmount = conversionService.Convert(amount, currency);
+
+            ViewData["Amount"] = amount;
+            ViewData["Currency"] = currency;
+            ViewData["ConvertedAmount"] = convertedAmount;
 
             return View("Index");
         }

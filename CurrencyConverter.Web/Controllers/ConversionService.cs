@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CurrencyConverter.Web.Controllers
+﻿namespace CurrencyConverter.Web.Controllers
 {
     public class ConversionService
     {
+        public string Convert(string amount, string currency)
+        {
+            return amount + "+1";
+        }
     }
 }
