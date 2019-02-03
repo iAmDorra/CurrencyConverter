@@ -20,6 +20,11 @@ namespace CurrencyConverter.Domain
                 return this;
             }
 
+            if (rate == null)
+            {
+                return null;
+            }
+
             var convertedValue = rate.Multiply(_value);
             return new Amount(convertedValue, currency);
         }
@@ -34,6 +39,11 @@ namespace CurrencyConverter.Domain
         public override int GetHashCode()
         {
             return HashCode.Combine(_value, _currency);
+        }
+
+        public string Format(IAmountFormatter formatter)
+        {
+            return formatter.Format(_value, _currency);
         }
     }
 }

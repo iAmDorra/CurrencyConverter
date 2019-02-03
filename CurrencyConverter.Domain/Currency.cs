@@ -24,5 +24,10 @@
         {
             return _name.Equals(currencyName);
         }
+
+        public override string ToString()
+        {
+            return _name;
+        }
     }
 }

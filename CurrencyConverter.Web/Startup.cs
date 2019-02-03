@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CurrencyConverter.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -33,6 +30,8 @@ namespace CurrencyConverter.Web
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            InitializeDatabase();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +57,40 @@ namespace CurrencyConverter.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private void InitializeDatabase()
+        {
+            MigrateDatabase();
+            CleanRatesTable();
+            InsertNewRate("USD", 1.14m);
+        }
+
+        private void MigrateDatabase()
+        {
+            using (var dbContext = new CurrencyConverterContext())
+            {
+                dbContext.Database.Migrate();
+            }
+        }
+
+        private void InsertNewRate(string usdCurrencyName, decimal usdRateValue)
+        {
+            using (var dbContext = new CurrencyConverterContext())
+            {
+                var usdRate = new RateValue { RateValueId = 1, Currency = usdCurrencyName, Value = usdRateValue };
+                dbContext.Rates.Add(usdRate);
+                dbContext.SaveChanges();
+            }
+        }
+
+        private static void CleanRatesTable()
+        {
+            using (var dbContext = new CurrencyConverterContext())
+            {
+                var deleteQuery = $"delete from {nameof(dbContext.Rates)}";
+                dbContext.Database.ExecuteSqlCommand(deleteQuery);
+            }
         }
     }
 }
