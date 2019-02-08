@@ -45,5 +45,15 @@ namespace CurrencyConverter.Domain
         {
             return formatter.Format(_value, _currency);
         }
+
+        public bool HasCurrency(Currency currency)
+        {
+            return _currency.Equals(currency);
+        }
+
+        public bool HasValue(decimal value)
+        {
+            return _value.Equals(value);
+        }
     }
 }
