@@ -1,7 +1,11 @@
-Ce projet est utilisé pour experimenter les differents tests qu'un développeur peut réaliser.
+Ce projet est utilisé pour experimenter les differents tests qu'un développeur puisse réaliser.
 * Unit tests
 * Integrated tests (narrow & broad)
 * End to end tests
+* property-based-testing
+* Health check tests
+
+Si les tests end-to-end sont rouges vérifiez l'url et port dans le test. Il faudra peut être les modifier.
 
 Suivre ces étapes si vous voulez créer une base de données :
 https://docs.microsoft.com/fr-fr/ef/core/get-started/netcore/new-db-sqlite
