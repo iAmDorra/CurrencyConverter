@@ -1,16 +1,19 @@
-Ce projet est utilisé pour experimenter les differents tests qu'un développeur puisse réaliser.
+Article associÃ© :
+[DiffÃ©rents tests pour un developpeur](https://www.arolla.fr/blog/2020/01/differents_tests_pour_developpeur/)
+
+Ce projet est utilisÃ© pour experimenter les differents tests qu'un dÃ©veloppeur puisse rÃ©aliser.
 * Unit tests
 * Integrated tests (narrow & broad)
 * End to end tests
 * property-based-testing
 * Health check tests
 
-Si les tests end-to-end sont rouges vérifiez l'url et port dans le test. Il faudra peut être les modifier.
+Si les tests end-to-end sont rouges vÃ©rifiez l'url et port dans le test. Il faudra peut Ãªtre les modifier.
 
-Suivre ces étapes si vous voulez créer une base de données :
+Suivre ces Ã©tapes si vous voulez crÃ©er une base de donnÃ©es :
 https://docs.microsoft.com/fr-fr/ef/core/get-started/netcore/new-db-sqlite
 
-**Au cas où le lien n'est pas accéssible, voici les informations à retenir :**
+**Au cas oÃ¹ le lien n'est pas accÃ©ssible, voici les informations Ã  retenir :**
 
 Installez Microsoft.EntityFrameworkCore.Sqlite et Microsoft.EntityFrameworkCore.Design :
 
@@ -18,41 +21,41 @@ Installez Microsoft.EntityFrameworkCore.Sqlite et Microsoft.EntityFrameworkCore.
 et 
 ```dotnet add package Microsoft.EntityFrameworkCore.Design```
 
-Créez le modèle : Le DbContext et les entités
+CrÃ©ez le modÃ¨le : Le DbContext et les entitÃ©s
 
-Une fois que vous avez un modèle, vous utilisez des migrations pour créer une base de données.
-Exécutez 
+Une fois que vous avez un modÃ¨le, vous utilisez des migrations pour crÃ©er une base de donnÃ©es.
+ExÃ©cutez 
 ```
 dotnet ef migrations add InitialCreate 
 ```
-pour générer automatiquement un modèle de migration et créer l’ensemble initial de tables du modèle.
-Exécutez 
+pour gÃ©nÃ©rer automatiquement un modÃ¨le de migration et crÃ©er lâ€™ensemble initial de tables du modÃ¨le.
+ExÃ©cutez 
 ```
 dotnet ef database update 
 ```
-pour appliquer la nouvelle migration à la base de données. Cette commande crée la base de données avant d’appliquer des migrations.
+pour appliquer la nouvelle migration Ã  la base de donnÃ©es. Cette commande crÃ©e la base de donnÃ©es avant dâ€™appliquer des migrations.
 
 Pour plus d'info sur les migrations :
 https://docs.microsoft.com/fr-fr/ef/core/managing-schemas/migrations/index
 
-Modification du modèle :
-Si vous apportez des modifications au modèle, vous pouvez utiliser la commande 
+Modification du modÃ¨le :
+Si vous apportez des modifications au modÃ¨le, vous pouvez utiliser la commande 
 ```
 dotnet ef migrations add 
 ```
-pour générer automatiquement une nouvelle migration. 
-Après avoir vérifié le code de modèle généré automatiquement (et effectué toutes les modifications nécessaires), vous pouvez utiliser la commande 
+pour gÃ©nÃ©rer automatiquement une nouvelle migration. 
+AprÃ¨s avoir vÃ©rifiÃ© le code de modÃ¨le gÃ©nÃ©rÃ© automatiquement (et effectuÃ© toutes les modifications nÃ©cessaires), vous pouvez utiliser la commande 
 ```
 dotnet ef database update 
 ```
-pour appliquer les modifications de schéma à la base de données.
+pour appliquer les modifications de schÃ©ma Ã  la base de donnÃ©es.
 
-EF Core utilise une table ```__EFMigrationsHistory``` dans la base de données pour effectuer le suivi des migrations qui ont déjà été appliquées à la base de données.
-Le moteur de base de données SQLite ne prend pas en charge certaines modifications de schéma qui sont prises en charge par la plupart des autres bases de données relationnelles. 
-Par exemple, l’opération ```DropColumn``` n’est pas prise en charge. 
+EF Core utilise une table ```__EFMigrationsHistory``` dans la base de donnÃ©es pour effectuer le suivi des migrations qui ont dÃ©jÃ  Ã©tÃ© appliquÃ©es Ã  la base de donnÃ©es.
+Le moteur de base de donnÃ©es SQLite ne prend pas en charge certaines modifications de schÃ©ma qui sont prises en charge par la plupart des autres bases de donnÃ©es relationnelles. 
+Par exemple, lâ€™opÃ©ration ```DropColumn``` nâ€™est pas prise en charge. 
 
-Les migrations EF Core génèrent du code pour ces opérations, mais si vous tentez de les appliquer à une base de données ou de générer un script, EF Core lève des exceptions. 
+Les migrations EF Core gÃ©nÃ¨rent du code pour ces opÃ©rations, mais si vous tentez de les appliquer Ã  une base de donnÃ©es ou de gÃ©nÃ©rer un script, EF Core lÃ¨ve des exceptions. 
 Consultez Limitations de SQLite. 
 https://docs.microsoft.com/fr-fr/ef/core/providers/sqlite/limitations
 
-Pour tout nouveau développement, il est préférable de supprimer la base de données et d’en créer une nouvelle plutôt que d’utiliser des migrations quand le modèle change.
+Pour tout nouveau dÃ©veloppement, il est prÃ©fÃ©rable de supprimer la base de donnÃ©es et dâ€™en crÃ©er une nouvelle plutÃ´t que dâ€™utiliser des migrations quand le modÃ¨le change.
