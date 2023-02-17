@@ -16,15 +16,30 @@ namespace CurrencyConverter.Domain.PropertyBasedTests
                 Currency usd = new Currency("USD");
                 Rate eurUsdRate = new Rate(rate);
                 Amount usdAmount = euroAmount.Convert(usd, eurUsdRate);
-                return usdAmount.HasCurrency(usd) && usdAmount.HasValue(amountValue * rate);
+                return usdAmount.HasValue(amountValue * rate);
             };
 
-            return codeToCheck.When(
-                rate != 0
-                && rate > 1
-                && rate < 100000000
-                && amountValue > decimal.MinValue / rate
-                && amountValue < decimal.MaxValue / rate);
+            return codeToCheck.When(Global.AnyInput);
         }
+
+        [Property]
+        public Property Result_amount_should_be_in_target_currency(decimal amountValue, decimal rate)
+        {
+            return Prop.When(Global.AnyInput,
+                  () =>
+                  {
+                      Currency eur = new Currency("EUR");
+                      Amount euroAmount = new Amount(amountValue, eur);
+                      Currency usd = new Currency("USD");
+                      Rate eurUsdRate = new Rate(rate);
+                      Amount usdAmount = euroAmount.Convert(usd, eurUsdRate);
+                      return usdAmount.HasCurrency(usd);
+                  });
+        }
+    }
+
+    public class Global
+    {
+        public static bool AnyInput = true;
     }
 }
