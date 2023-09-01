@@ -50,6 +50,8 @@ namespace CurrencyConverter.AcceptanceTests.StepDefinitions
             {
                 case "to cents":
                     return Rounding.ToCents;
+                case "to units":
+                    return Rounding.ToUnits;
             }
 
             return Rounding.ToCents;

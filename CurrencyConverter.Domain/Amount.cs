@@ -13,7 +13,7 @@ namespace CurrencyConverter.Domain
             _currency = currency;
         }
 
-        public Amount Convert(Currency currency, Rate rate, Rounding rounding = Rounding.ToCents)
+        public Amount Convert(Currency currency, Rate rate, Rounding rounding = Rounding.ToUnits)
         {
             if (_currency.Equals(currency))
             {
@@ -32,7 +32,12 @@ namespace CurrencyConverter.Domain
 
         private decimal Round(decimal convertedValue, Rounding rounding)
         {
-            return Decimal.Round(convertedValue, 2);
+            if (rounding == Rounding.ToCents)
+            {
+                return Decimal.Round(convertedValue, 2);
+            }
+
+            return convertedValue;
         }
 
         public override bool Equals(object obj)

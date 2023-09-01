@@ -18,6 +18,7 @@
 
     public enum Rounding
     {
-        ToCents
+        ToCents,
+        ToUnits
     }
 }

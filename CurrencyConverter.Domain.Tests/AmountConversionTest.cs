@@ -19,6 +19,20 @@ namespace CurrencyConverter.Domain.Tests
 
         [TestMethod]
         [TestCategory("Unit test")]
+        public void Should_convert_the_amount_when_given_currency_and_rate_rounding_to_units()
+        {
+            Currency eur = new Currency("EUR");
+            Amount euroAmount = new Amount(10, eur);
+            Currency usd = new Currency("USD");
+            Rate eurUsdRate = new Rate(1.1329m);
+            Amount usdAmount = euroAmount.Convert(usd, eurUsdRate, Rounding.ToUnits);
+
+            Amount expectedAmount = new Amount(11.329m, usd);
+            Check.That(usdAmount).IsEqualTo(expectedAmount);
+        }
+
+        [TestMethod]
+        [TestCategory("Unit test")]
         public void Should_convert_the_amount_when_given_currency_and_rate_rounding_to_cents()
         {
             Currency eur = new Currency("EUR");
@@ -106,7 +120,7 @@ namespace CurrencyConverter.Domain.Tests
             Currency eur = new Currency("EUR");
             Amount euroAmount = new Amount(10, eur);
             var formatter = new AmountFormatter();
-            
+
             string stringAmountValue = euroAmount.Format(formatter);
 
             string formattedAmount = "10 EUR";
@@ -121,7 +135,7 @@ namespace CurrencyConverter.Domain.Tests
             Currency eurCurrency = new Currency("EUR");
             Amount eurAmount = new Amount(10, eurCurrency);
             Rate nullRate = null;
-            
+
             Amount convertedAmount = eurAmount.Convert(usdCurrency, nullRate);
 
             Check.That(convertedAmount).IsNull();
