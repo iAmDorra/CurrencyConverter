@@ -1,4 +1,4 @@
-Article associé :
+#Article associé
 [Différents tests pour un developpeur](https://www.arolla.fr/blog/2020/01/differents_tests_pour_developpeur/)
 
 Ce projet est utilisé pour experimenter les differents tests qu'un développeur puisse réaliser.
@@ -59,3 +59,19 @@ Consultez Limitations de SQLite.
 https://docs.microsoft.com/fr-fr/ef/core/providers/sqlite/limitations
 
 Pour tout nouveau développement, il est préférable de supprimer la base de données et d’en créer une nouvelle plutôt que d’utiliser des migrations quand le modèle change.
+
+#Living Documentation with specflow
+Suivez les instructions de ce lien https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html
+
+Commande pour générer la doc sans le resultat de l'execution des tests
+```
+livingdoc test-assembly 
+{DossierDuProjet}\CurrencyConverter\CurrencyConverter.AcceptanceTests\bin\Debug\net7.0\CurrencyConverter.AcceptanceTests.dll 
+```
+et avec l'execution des tests
+```
+livingdoc test-assembly 
+{DossierDuProjet}\CurrencyConverter\CurrencyConverter.AcceptanceTests\bin\Debug\net7.0\CurrencyConverter.AcceptanceTests.dll 
+-t {DossierDuProjet}\CurrencyConverter\CurrencyConverter.AcceptanceTests\bin\Debug\net7.0\TestExecution.json
+```
+Le fichier html sera généré par défaut à la racine du projet sous ```{DossierDuProjet}\CurrencyConverter``` avec le nom de ```LivingDoc.hml```
