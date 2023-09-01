@@ -1,7 +1,7 @@
 ﻿using CurrencyConverter.Domain;
 using CurrencyConverter.Infrastructure;
 
-namespace CurrencyConverter.Web.Controllers
+namespace CurrencyConverter.App.Controllers
 {
     public class ConversionService
     {

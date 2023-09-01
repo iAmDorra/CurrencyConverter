@@ -10,7 +10,7 @@ namespace CurrencyConverter.Infrastructure
         {
             using (var db = new CurrencyConverterContext())
             {
-                var rateValue = db.Rates.FirstOrDefault(r => currency.Is(r.Currency));
+                var rateValue = db.Rates.ToList().FirstOrDefault(r => currency.Is(r.Currency));
                 return rateValue == null ? null : new Rate(rateValue.Value);
             }
         }

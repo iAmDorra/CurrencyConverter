@@ -2,6 +2,7 @@
 using NFluent;
 using System;
 using System.Net;
+using System.Net.Http;
 
 namespace CurrencyConverter.Web.Tests
 {
@@ -12,7 +13,7 @@ namespace CurrencyConverter.Web.Tests
         [TestCategory("Health check test")]
         public void Check_that_web_site_is_up()
         {
-            const string url = @"https://localhost:44304/Home";
+            const string url = @"http://localhost:5211/Home";
             bool isServiceUp;
             try
             {

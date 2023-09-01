@@ -2,6 +2,8 @@ using CurrencyConverter.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
+using System;
+using System.Runtime.CompilerServices;
 
 namespace CurrencyConverter.Infrastructure.Tests
 {
@@ -66,7 +68,8 @@ namespace CurrencyConverter.Infrastructure.Tests
             using (var dbContext = new CurrencyConverterContext())
             {
                 var deleteQuery = $"delete from {nameof(dbContext.Rates)}";
-                dbContext.Database.ExecuteSqlCommand(deleteQuery);
+                FormattableString sql = FormattableStringFactory.Create(deleteQuery);                
+                dbContext.Database.ExecuteSql(sql);
             }
         }
     }

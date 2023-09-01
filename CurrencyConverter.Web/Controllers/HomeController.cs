@@ -1,8 +1,8 @@
-﻿using CurrencyConverter.Web.Models;
+﻿using CurrencyConverter.App.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace CurrencyConverter.Web.Controllers
+namespace CurrencyConverter.App.Controllers
 {
     public class HomeController : Controller
     {

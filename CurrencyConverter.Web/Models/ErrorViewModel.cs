@@ -1,10 +1,8 @@
-using System;
-
-namespace CurrencyConverter.Web.Models
+namespace CurrencyConverter.App.Models
 {
     public class ErrorViewModel
     {
-        public string RequestId { get; set; }
+        public string? RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }

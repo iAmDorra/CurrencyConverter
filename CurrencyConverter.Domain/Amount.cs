@@ -13,7 +13,7 @@ namespace CurrencyConverter.Domain
             _currency = currency;
         }
 
-        public Amount Convert(Currency currency, Rate rate)
+        public Amount Convert(Currency currency, Rate rate, Rounding rounding = Rounding.ToCents)
         {
             if (_currency.Equals(currency))
             {
@@ -26,14 +26,21 @@ namespace CurrencyConverter.Domain
             }
 
             var convertedValue = rate.Multiply(_value);
-            return new Amount(convertedValue, currency);
+            var roundedValue = Round(convertedValue, rounding);
+            return new Amount(roundedValue, currency);
+        }
+
+        private decimal Round(decimal convertedValue, Rounding rounding)
+        {
+            return Decimal.Round(convertedValue, 2);
         }
 
         public override bool Equals(object obj)
         {
-            return obj is Amount amount 
-                   && amount._value == _value 
-                   && amount._currency == _currency;
+            var other = obj as Amount;
+            return other != null
+                   && other._value.Equals(_value)
+                   && other._currency.Equals(_currency);
         }
 
         public override int GetHashCode()
@@ -54,6 +61,10 @@ namespace CurrencyConverter.Domain
         public bool HasValue(decimal value)
         {
             return _value.Equals(value);
+        }
+        public override string ToString()
+        {
+            return base.ToString() + " : value = " + this._value + " & currency = " + this._currency;
         }
     }
 }

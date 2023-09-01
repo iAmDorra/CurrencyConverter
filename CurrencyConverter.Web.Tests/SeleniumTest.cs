@@ -20,7 +20,7 @@ namespace CurrencyConverter.Web.Tests
         {
             using (var driver = new EdgeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)))
             {
-                driver.Navigate().GoToUrl(@"https://localhost:44304/Home");
+                driver.Navigate().GoToUrl(@"http://localhost:7096/Home");
                 Thread.Sleep(1000);
                 var amountValue = "100";
                 SetValueToElement(driver, amountValue, "Amount");

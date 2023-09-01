@@ -1,12 +1,36 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
 using NSubstitute;
+using System;
 
 namespace CurrencyConverter.Domain.Tests
 {
     [TestClass]
     public class AmountConversionTest
     {
+        [TestMethod]
+        public void Calcul()
+        {
+            var value1 = 50;
+            var value2 = 70;
+            var total = value1 + value2;
+            Assert.AreEqual(120, total);
+        }
+
+        [TestMethod]
+        [TestCategory("Unit test")]
+        public void Should_convert_the_amount_when_given_currency_and_rate_rounding_to_cents()
+        {
+            Currency eur = new Currency("EUR");
+            Amount euroAmount = new Amount(10, eur);
+            Currency usd = new Currency("USD");
+            Rate eurUsdRate = new Rate(1.1329m);
+            Amount usdAmount = euroAmount.Convert(usd, eurUsdRate, Rounding.ToCents);
+
+            Amount expectedAmount = new Amount(11.33m, usd);
+            Check.That(usdAmount).IsEqualTo(expectedAmount);
+        }
+
         [TestMethod]
         [TestCategory("Unit test")]
         public void Should_convert_the_amount_when_given_currency_and_rate()

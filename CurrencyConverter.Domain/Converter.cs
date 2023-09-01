@@ -9,10 +9,15 @@
             _rates = rates;
         }
 
-        public Amount Convert(Amount amount, Currency targetCurrency)
+        public Amount Convert(Amount amount, Currency targetCurrency, Rounding rounding = Rounding.ToCents)
         {
             Rate conversionRate = _rates.GetRateOf(targetCurrency);
-            return amount.Convert(targetCurrency, conversionRate);
+            return amount.Convert(targetCurrency, conversionRate, rounding);
         }
+    }
+
+    public enum Rounding
+    {
+        ToCents
     }
 }
