@@ -23,11 +23,11 @@ namespace CurrencyConverter.AcceptanceTests.StepDefinitions
         [When("I convert (.*) (.*) to (.*) by (.*)")]
         public void WhenIConvertTo(decimal amount, string sourceCurrency, string targetCurrency, Rounding rounding)
         {
-            Domain.Converter converter = new Domain.Converter(rates);
-            Currency amountCurrency = new Currency(sourceCurrency);
-            Amount initialAmount = new Amount(amount, amountCurrency);
+            Currency amountCurrency = new(sourceCurrency);
+            Amount initialAmount = new(amount, amountCurrency);
 
-            Currency currency = new Currency(targetCurrency);
+            Currency currency = new(targetCurrency);
+            Converter converter = new(rates);
             convertedAmount = converter.Convert(initialAmount, currency, rounding);
         }
 
