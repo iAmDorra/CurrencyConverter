@@ -26,7 +26,16 @@ namespace CurrencyConverter.Web.Tests
                 var convertedAmount = driver.FindElement(By.Id("ConvertedAmount"));
                 string convertedAmountValue = GetValue(convertedAmount);
                 Check.That(convertedAmountValue).IsEqualTo("114.00 USD");
+
+                CreateDocumentation(driver);
             }
+        }
+
+        private static void CreateDocumentation(EdgeDriver driver)
+        {
+            var screenShot = driver as ITakesScreenshot;
+            var screen = screenShot.GetScreenshot();
+            screen.SaveAsFile(@".\converter.png", ScreenshotImageFormat.Png);
         }
 
         private static void SetValueToElement(EdgeDriver driver, string elementValue, string elementId)
