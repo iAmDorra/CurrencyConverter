@@ -1,0 +1,10 @@
+
+## 1. [GetRateOf](https://github.com/iAmDorra/CurrencyConverter/blob/master/CurrencyConverter.Domain/IRates.cs#L0)
+
+*Find rates in real time in external market sources*
+
+
+## 2. [Convert](https://github.com/iAmDorra/CurrencyConverter/blob/master/CurrencyConverter.Domain/Amount.cs#L0)
+
+*Convert the source currency amount to a target currency rounding by cents or units*
+

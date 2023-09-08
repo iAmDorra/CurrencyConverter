@@ -27,6 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Ressources\content_approved.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Ressources\strapdown-template.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrencyConverter.Domain.TourAttributes;
+using System;
 
 namespace CurrencyConverter.Domain
 {
@@ -13,6 +14,7 @@ namespace CurrencyConverter.Domain
             _currency = currency;
         }
 
+        [Step("Conversion", "Convert the source currency amount to a target currency rounding by cents or units", 2)]
         public Amount Convert(Currency currency, Rate rate, Rounding rounding = Rounding.ToUnits)
         {
             if (_currency.Equals(currency))
