@@ -11,6 +11,7 @@ namespace CurrencyConverter.Web.Tests
     {
         [TestMethod]
         [TestCategory("End to end test")]
+        [TestCategory("Living Documentation")]
         public void Should_return_the_right_conversion_when_using_Edge_driver()
         {
             using (var driver = new EdgeDriver())
