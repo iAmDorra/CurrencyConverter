@@ -5,13 +5,13 @@ Amount(ccy) + target ccy => Amount(target ccy)
 Link to a feature: [Currency conversion](CurrencyConverter.AcceptanceTests/Features/CurrencyConversion.feature)
 ***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**
 
-@roundingToCents
+@roundingToCents @LivingDocumentation
 Scenario: Simple conversion rounding to cents
 	Given the EUR to USD exchange rate is 1.1329
 	When I convert 10 EUR to USD by rounding to cents
 	Then I get 11.33 USD
 
-@roundingToUnits
+@roundingToUnits @LivingDocumentation
 Scenario: Simple conversion rounding to units
 	Given the EUR to USD exchange rate is 1.1329
 	When I convert 10 EUR to USD by rounding to units

@@ -17,7 +17,7 @@ namespace CurrencyConverter.LivingDocumentation
         private readonly Dictionary<string, Tour> tours = new Dictionary<string, Tour>();
 
         [TestMethod]
-        [TestCategory("Living Documentation")]
+        [TestCategory("LivingDocumentation")]
         public void PrintGuidedTour()
         {
             var domainClasses = typeof(Amount).Assembly.GetTypes();

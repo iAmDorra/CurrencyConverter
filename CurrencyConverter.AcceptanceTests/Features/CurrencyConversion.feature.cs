@@ -80,10 +80,12 @@ Link to a feature: [Currency conversion](CurrencyConverter.AcceptanceTests/Featu
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Simple conversion rounding to cents")]
         [NUnit.Framework.CategoryAttribute("roundingToCents")]
+        [NUnit.Framework.CategoryAttribute("LivingDocumentation")]
         public void SimpleConversionRoundingToCents()
         {
             string[] tagsOfScenario = new string[] {
-                    "roundingToCents"};
+                    "roundingToCents",
+                    "LivingDocumentation"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Simple conversion rounding to cents", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9
@@ -112,10 +114,12 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Simple conversion rounding to units")]
         [NUnit.Framework.CategoryAttribute("roundingToUnits")]
+        [NUnit.Framework.CategoryAttribute("LivingDocumentation")]
         public void SimpleConversionRoundingToUnits()
         {
             string[] tagsOfScenario = new string[] {
-                    "roundingToUnits"};
+                    "roundingToUnits",
+                    "LivingDocumentation"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Simple conversion rounding to units", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 15

@@ -19,7 +19,7 @@ namespace CurrencyConverter.LivingDocumentation
         const string domainPrefix = ".Domain";
 
         [TestMethod]
-        [TestCategory("Living Documentation")]
+        [TestCategory("LivingDocumentation")]
         public void GenerateHexagonalArchitectureDiagram()
         {
             var graph = CreateGraph();
