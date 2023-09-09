@@ -12,20 +12,11 @@ namespace CurrencyConverter.Web.Tests
         [TestCategory("Health check test")]
         public void Check_that_web_site_is_up()
         {
-            const string url = @"http://localhost:44346";
-            bool isServiceUp;
-            try
-            {
-                var myRequest = (HttpWebRequest)WebRequest.Create(url);
-                var response = (HttpWebResponse)myRequest.GetResponse();
-                isServiceUp = response.StatusCode == HttpStatusCode.OK;
-            }
-            catch (Exception ex)
-            {
-                isServiceUp = false;
-            }
+            const string url = @"https://localhost:44346/Home";
+            var myRequest = (HttpWebRequest)WebRequest.Create(url);
+            var response = (HttpWebResponse)myRequest.GetResponse();
 
-            Check.That(isServiceUp).IsTrue();
+            Check.That(response.StatusCode).IsEqualTo(HttpStatusCode.OK);
         }
     }
 }
