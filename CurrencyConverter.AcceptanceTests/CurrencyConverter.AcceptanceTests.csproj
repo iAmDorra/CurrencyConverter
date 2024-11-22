@@ -19,12 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Drivers\" />
-    <Folder Include="StepDefinitions\" />
-    <Folder Include="Support\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CurrencyConverter.Domain\CurrencyConverter.Domain.csproj" />
   </ItemGroup>
 
